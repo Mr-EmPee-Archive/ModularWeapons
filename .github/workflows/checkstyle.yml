@@ -1,0 +1,28 @@
+name: Checkstyle
+
+on: [push, pull_request]
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Java
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jdk
+      - name: Download Checkstyle
+        run: |
+          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.6.0/checkstyle-10.6.0-all.jar
+          rm checkstyle.xml
+          wget https://raw.githubusercontent.com/MP-MC/Minecraft-Plugin-Template/master/checkstyle.xml
+      - name: Check for warnings
+        run: |
+          result=$(java -jar checkstyle-10.6.0-all.jar -c checkstyle.xml $(find . -name "*.java"))
+          if [[ $result == *"WARN"* ]]; then
+              echo "Checkstyle warnings found: $result"
+              exit 1
+          else
+              echo "Checkstyle check passed"
+          fi

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <parent>
+    <artifactId>AbstractParent</artifactId>
+    <groupId>ml.empee</groupId>
+    <version>1.0</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>modularweapons</artifactId>
+  <version>1.0.0</version>
+
+  <properties>
+    <plugin.api>1.13</plugin.api>
+    <plugin.main>ml.empee.template.TemplatePlugin</plugin.main>
+
+    <plugin.output-dir>${env.MINECRAFT_SERVER}\1.19.3\plugins</plugin.output-dir>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot</artifactId>
+      <version>${server.version}</version>
+      <classifier>remapped-mojang</classifier>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>commandsManager</artifactId>
+      <groupId>ml.empee</groupId>
+      <version>1.0.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>configsManager</artifactId>
+      <groupId>ml.empee</groupId>
+      <version>1.0.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>simpleNotifier</artifactId>
+      <groupId>ml.empee</groupId>
+      <version>1.0.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>item-builder</artifactId>
+      <groupId>ml.empee</groupId>
+      <version>1.0.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>RyseInventory-Plugin</artifactId>
+      <groupId>io.github.rysefoxx.inventory</groupId>
+      <version>1.5.6.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.seeseemelk</groupId>
+      <artifactId>MockBukkit-v1.19</artifactId>
+      <version>2.29.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.md-5</groupId>
+        <artifactId>specialsource-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
