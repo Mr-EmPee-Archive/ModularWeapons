@@ -1,3 +1,5 @@
+package ml.empee.modularweapons;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -13,7 +15,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class ResourcepackServiceTest extends PluginTest {
+class ResourcepackServiceTest extends AbstractTest {
 
   private WeaponService weaponService;
   private ResourcepackService resourcepackService;
