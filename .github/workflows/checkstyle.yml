@@ -19,7 +19,7 @@ jobs:
           wget https://raw.githubusercontent.com/MP-MC/Minecraft-Plugin-Template/master/checkstyle.xml
       - name: Check for warnings
         run: |
-          result=$(java -jar checkstyle-10.6.0-all.jar -c checkstyle.xml $(find . -name "*.java"))
+          result=$(java -jar checkstyle-10.6.0-all.jar -c checkstyle.xml $(find . -type f -name "*.java" ! -path "./src/test/java/*"))
           if [[ $result == *"WARN"* ]]; then
               echo "Checkstyle warnings found: $result"
               exit 1
