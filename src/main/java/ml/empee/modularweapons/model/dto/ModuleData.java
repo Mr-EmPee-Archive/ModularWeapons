@@ -5,6 +5,8 @@ import lombok.Data;
 import ml.empee.json.validator.annotations.Required;
 import ml.empee.json.validator.annotations.Validator;
 
+/** Contains data of a module **/
+
 @Data
 public class ModuleData {
 
@@ -15,7 +17,7 @@ public class ModuleData {
 
   @Validator
   private void validateId() {
-    if(id.contains(";")) {
+    if (id.contains(";")) {
       throw new JsonParseException("Module id '" + id + "' can't contain a ';'");
     }
   }

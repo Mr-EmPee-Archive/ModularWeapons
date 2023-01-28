@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.Getter;
 import lombok.experimental.Delegate;
-import ml.empee.itembuilder.ItemBuilder;
 import ml.empee.itembuilder.utils.ItemNbt;
 import ml.empee.json.JsonPersistence;
 import ml.empee.modularweapons.model.dto.WeaponData;
@@ -47,6 +46,20 @@ public class Weapon {
     this.item = PluginItem.of(plugin, data.getId(), "1", Material.IRON_AXE);
   }
 
+  /** Compute an id that doesn't start with a 0 and it is at max 7 digits **/
+  public static int computeModelId(String weaponUuid) {
+    int sumOfValues = 0;
+    for (int i = 0; i < weaponUuid.length(); i++) {
+      // Get the ASCII value of each character in the string
+      sumOfValues += weaponUuid.charAt(i);
+    }
+
+    // Multiply by a large prime number
+    int hashValue = sumOfValues * 997;
+    // Ensure the resulting value has at most 7 digits by taking the last 7 digits
+    return hashValue % 10000000;
+  }
+
   private WeaponData loadWeaponData(File path, JsonPersistence jsonPersistence) {
     WeaponData data = jsonPersistence.deserialize(path, WeaponData.class);
     if (data == null) {
@@ -76,6 +89,7 @@ public class Weapon {
         .collect(Collectors.toSet());
   }
 
+  /** Add modules to a weapon **/
   public void equipModules(ItemStack target, WeaponModule... modules) {
     String equippedModules = Objects.requireNonNullElse(
         ItemNbt.getString(plugin, target, "modules"),
@@ -90,6 +104,7 @@ public class Weapon {
     setModelId(target);
   }
 
+  /** Remove modules from a weapon **/
   public void unequipModules(ItemStack target, WeaponModule... modules) {
     String equippedModules = Objects.requireNonNullElse(
         ItemNbt.getString(plugin, target, "modules"),
@@ -104,6 +119,7 @@ public class Weapon {
     setModelId(target);
   }
 
+  /** Check if it has modules **/
   public boolean hasModule(ItemStack target, WeaponModule module) {
     String equippedModules = Objects.requireNonNullElse(
         ItemNbt.getString(plugin, target, "modules"),
@@ -113,6 +129,7 @@ public class Weapon {
     return equippedModules.contains(";" + module.getId() + ";");
   }
 
+  /** Get the model id of a weapon **/
   public int getModelId(ItemStack target) {
     if (!target.hasItemMeta()) {
       return -1;
@@ -139,26 +156,15 @@ public class Weapon {
     return computeModelId(weaponUuid);
   }
 
+  /** Build an uuid for this type of weapon based on the given modules **/
   public String getUuid(Collection<WeaponModule> modules) {
     String weaponUuid = data.getId();
 
-    for(WeaponModule module : modules) {
+    for (WeaponModule module : modules) {
       weaponUuid += ";" + module.getId() + ";";
     }
 
     return weaponUuid;
-  }
-  public static int computeModelId(String weaponUuid) {
-    int sumOfValues = 0;
-    for (int i = 0; i < weaponUuid.length(); i++) {
-      // Get the ASCII value of each character in the string
-      sumOfValues += weaponUuid.charAt(i);
-    }
-
-    // Multiply by a large prime number
-    int hashValue = sumOfValues * 997;
-    // Ensure the resulting value has at most 7 digits by taking the last 7 digits
-    return hashValue % 10000000;
   }
 
 }

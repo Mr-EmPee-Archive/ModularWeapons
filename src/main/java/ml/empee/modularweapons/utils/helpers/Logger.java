@@ -2,15 +2,12 @@ package ml.empee.modularweapons.utils.helpers;
 
 import java.util.Locale;
 import java.util.logging.Level;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ml.empee.ioc.annotations.Bean;
 import ml.empee.modularweapons.ModularWeapons;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * This class allow you to easily log messages.
@@ -49,52 +46,68 @@ public final class Logger {
     );
   }
 
-  /** Log to the console a debug message. **/
+  /**
+   * Log to the console a debug message.
+   **/
   public void debug(String message, Object... args) {
     if (isDebugEnabled) {
       consoleLogger.info(String.format(Locale.ROOT, message, args));
     }
   }
 
-  /** Log a debug message to a player. **/
+  /**
+   * Log a debug message to a player.
+   **/
   public void debug(CommandSender player, String message, Object... args) {
     if (isDebugEnabled) {
       log(player, message, ChatColor.DARK_GRAY, args);
     }
   }
 
-  /** Log to the console an info message. **/
+  /**
+   * Log to the console an info message.
+   **/
   public void info(String message, Object... args) {
     if (consoleLogger.isLoggable(Level.INFO)) {
       consoleLogger.info(String.format(Locale.ROOT, message, args));
     }
   }
 
-  /** Log an info message to a player. **/
+  /**
+   * Log an info message to a player.
+   **/
   public void info(CommandSender player, String message, Object... args) {
     log(player, message, ChatColor.GRAY, args);
   }
 
-  /** Log to the console a warning message. **/
+  /**
+   * Log to the console a warning message.
+   **/
   public void warning(String message, Object... args) {
     if (consoleLogger.isLoggable(Level.WARNING)) {
       consoleLogger.warning(String.format(Locale.ROOT, message, args));
     }
   }
 
-  /** Log a warning message to a player. **/
+  /**
+   * Log a warning message to a player.
+   **/
   public void warning(CommandSender player, String message, Object... args) {
     log(player, message, ChatColor.GOLD, args);
   }
 
-  /** Log to the console an error message. **/
+  /**
+   * Log to the console an error message.
+   **/
   public void error(String message, Object... args) {
     if (consoleLogger.isLoggable(Level.SEVERE)) {
       consoleLogger.severe(String.format(Locale.ROOT, message, args));
     }
   }
 
-  /** Log an error message to a player. **/
+  /**
+   * Log an error message to a player.
+   **/
   public void error(CommandSender player, String message, Object... args) {
     log(player, message, ChatColor.RED, args);
   }

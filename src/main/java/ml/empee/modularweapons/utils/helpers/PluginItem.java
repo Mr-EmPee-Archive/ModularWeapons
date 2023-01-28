@@ -7,7 +7,9 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/** Allow you to easily create a custom item **/
+/**
+ * Allow you to easily create a custom item
+ **/
 
 public class PluginItem {
 

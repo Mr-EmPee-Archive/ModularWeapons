@@ -11,6 +11,8 @@ import ml.empee.modularweapons.ModularWeapons;
 import ml.empee.modularweapons.config.Config;
 import ml.empee.modularweapons.model.Weapon;
 
+/** Manages the weapons **/
+
 @Bean
 public class WeaponService {
 
@@ -20,6 +22,7 @@ public class WeaponService {
   @Getter
   private Set<Weapon> weapons;
 
+  /** IoC Constructor **/
   public WeaponService(ModularWeapons plugin, Config config) {
     this.plugin = plugin;
     this.config = config;
@@ -27,6 +30,7 @@ public class WeaponService {
     loadAllWeapons(new File(plugin.getDataFolder(), "weapons"));
   }
 
+  /** Load all weapons from a path into this service **/
   public void loadAllWeapons(File path) {
     if (!path.exists()) {
       path.mkdirs();
@@ -35,9 +39,9 @@ public class WeaponService {
     JsonPersistence jsonPersistence = new JsonPersistence();
 
     weapons = Arrays.stream(path.listFiles())
-              .filter(File::isDirectory)
-              .map(f -> new Weapon(plugin, f, jsonPersistence))
-              .collect(Collectors.toSet());
+        .filter(File::isDirectory)
+        .map(f -> new Weapon(plugin, f, jsonPersistence))
+        .collect(Collectors.toSet());
 
     //TODO: Check that weapon hasn't too much modules
   }

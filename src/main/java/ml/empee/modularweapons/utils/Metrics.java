@@ -206,14 +206,13 @@ public final class Metrics {
      * @param serviceId                   The id of the service.
      * @param serverUuid                  The server uuid.
      * @param enabled                     Whether or not data sending is enabled.
-     * @param appendPlatformDataConsumer  A consumer that receives a {@code JsonObjectBuilder} and
-     *                                    appends all platform-specific data.
-     * @param appendServiceDataConsumer   A consumer that receives a {@code JsonObjectBuilder} and
-     *                                    appends all service-specific data.
-     * @param submitTaskConsumer          A consumer that takes a runnable with the submit task.
-     *                                    This can be used to delegate the data collection to a
-     *                                    another thread to prevent errors caused by concurrency.
-     *                                    Can be {@code null}.
+     * @param appendPlatformDataConsumer  A consumer that receives a {@code JsonObjectBuilder} and appends all
+     *                                    platform-specific data.
+     * @param appendServiceDataConsumer   A consumer that receives a {@code JsonObjectBuilder} and appends all
+     *                                    service-specific data.
+     * @param submitTaskConsumer          A consumer that takes a runnable with the submit task. This can be
+     *                                    used to delegate the data collection to a another thread to prevent
+     *                                    errors caused by concurrency. Can be {@code null}.
      * @param checkServiceEnabledSupplier A supplier to check if the service is still enabled.
      * @param errorLogger                 A consumer that accepts log message and an error.
      * @param infoLogger                  A consumer that accepts info log messages.
@@ -859,8 +858,7 @@ public final class Metrics {
      * A super simple representation of a JSON object.
      *
      * <p>This class only exists to make methods of the {@link JsonObjectBuilder} type-safe and not
-     * allow a raw string inputs for methods like
-     * {@link JsonObjectBuilder#appendField(String, JsonObject)}.
+     * allow a raw string inputs for methods like {@link JsonObjectBuilder#appendField(String, JsonObject)}.
      */
     public static class JsonObject {
 

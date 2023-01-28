@@ -10,7 +10,9 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
-/** Boot class of this plugin. **/
+/**
+ * Boot class of this plugin.
+ **/
 
 public final class ModularWeapons extends JavaPlugin {
 
@@ -21,19 +23,25 @@ public final class ModularWeapons extends JavaPlugin {
   @Getter
   private SimpleIoC iocContainer;
 
-  /** Used by minecraft server class loader **/
+  /**
+   * Used by minecraft server class loader
+   **/
   public ModularWeapons() {
     super();
   }
 
-  /** Used by Mock-Bukkit **/
+  /**
+   * Used by Mock-Bukkit
+   **/
   protected ModularWeapons(
       JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file
   ) {
     super(loader, description, dataFolder, file);
   }
 
-  /** Invoked when the plugin is being enabled. **/
+  /**
+   * Invoked when the plugin is being enabled.
+   **/
   public void onEnable() {
     iocContainer = SimpleIoC.initialize(this, "relocations");
     registerCommands();
@@ -42,7 +50,9 @@ public final class ModularWeapons extends JavaPlugin {
     //TODO: Notifier.listenForUpdates(this, SPIGOT_PLUGIN_ID);
   }
 
-  /** Reload the plugin. **/
+  /**
+   * Reload the plugin.
+   **/
   public void reload() {
     iocContainer.removeAllBeans();
     iocContainer = SimpleIoC.initialize(this, "relocations");
@@ -55,8 +65,11 @@ public final class ModularWeapons extends JavaPlugin {
     commandManager.registerCommand(iocContainer.getBean(PluginController.class));
   }
 
-  /** Store all the plugin permission **/
+  /**
+   * Store all the plugin permission
+   **/
   public static final class Permissions {
+
     public static final String ADMIN = "modularweapons.admin";
   }
 

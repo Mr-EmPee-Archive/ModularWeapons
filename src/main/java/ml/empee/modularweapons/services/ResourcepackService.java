@@ -9,26 +9,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import lombok.RequiredArgsConstructor;
 import ml.empee.ioc.annotations.Bean;
 import ml.empee.json.JsonPersistence;
 import ml.empee.modularweapons.ModularWeapons;
-import ml.empee.modularweapons.config.Config;
 import ml.empee.modularweapons.model.Weapon;
 import ml.empee.modularweapons.model.WeaponModule;
 import org.apache.commons.io.FileUtils;
 
+/** Manage the plugin resourcepack **/
+
 @Bean
 public class ResourcepackService {
+
   private final File resourcePackFolder;
   private final WeaponService weaponService;
 
+  /** IoC Constructor **/
   public ResourcepackService(ModularWeapons plugin, WeaponService weaponService) {
     this.weaponService = weaponService;
 
     resourcePackFolder = new File(plugin.getDataFolder(), "resourcepack");
   }
 
+  /** Generate a new resourcepack at the path <b>plugin-folder/resourcepack</b>  **/
   public void buildResourcepack() throws IOException {
     deleteResourcepack();
 
@@ -61,7 +64,7 @@ public class ResourcepackService {
         (List<Object>) weapon.getModel().getOrDefault("elements", Collections.emptyList())
     );
 
-    for(WeaponModule module : modules) {
+    for (WeaponModule module : modules) {
       List<Object> modelElements = (List<Object>) module.getModel().getOrDefault(
           "elements", Collections.emptyList()
       );

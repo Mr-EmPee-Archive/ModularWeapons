@@ -6,7 +6,9 @@ import ml.empee.commandsManager.command.annotations.CommandNode;
 import ml.empee.ioc.annotations.Bean;
 import ml.empee.modularweapons.ModularWeapons.Permissions;
 
-/** Controller used for managing the plugin. **/
+/**
+ * Controller used for managing the plugin.
+ **/
 
 @Bean
 @RequiredArgsConstructor

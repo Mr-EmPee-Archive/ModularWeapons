@@ -26,7 +26,7 @@ public class WeaponModule {
 
   private ModuleData loadModuleData(File path, JsonPersistence jsonPersistence) {
     ModuleData data = jsonPersistence.deserialize(path, ModuleData.class);
-    if(data == null) {
+    if (data == null) {
       data = new ModuleData();
     }
 
@@ -35,7 +35,7 @@ public class WeaponModule {
 
   private Map<String, Object> loadModelElements(File path, JsonPersistence jsonPersistence) {
     Map<String, Object> data = jsonPersistence.deserialize(path, Map.class);
-    if(data == null) {
+    if (data == null) {
       return Collections.emptyMap();
     }
 
