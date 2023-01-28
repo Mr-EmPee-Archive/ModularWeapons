@@ -37,6 +37,12 @@
     </dependency>
 
     <dependency>
+      <groupId>ml.empee</groupId>
+      <artifactId>json-persistence</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+
+    <dependency>
       <artifactId>configsManager</artifactId>
       <groupId>ml.empee</groupId>
       <version>1.0.0</version>

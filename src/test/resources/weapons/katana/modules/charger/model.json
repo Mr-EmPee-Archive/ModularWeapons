@@ -1,0 +1,60 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "voxels_atlas": "katana/katana"
+  },
+  "elements": [
+    {
+      "__comment": "Charger Model",
+      "from": [ 4.125, -4.75, 7.5 ],
+      "to": [ 4.375, -4.5, 8.625 ],
+      "faces": {
+        "down": { "uv": [ 5.3125, 12, 5.4375, 12.5625 ], "texture": "#voxels_atlas" },
+        "up": { "uv": [ 4.375, 9.9375, 4.5, 9.375 ], "texture": "#voxels_atlas" },
+        "north": { "uv": [ 4.5, 9.25, 4.375, 9.375 ], "texture": "#voxels_atlas" },
+        "south": { "uv": [ 4.5, 9.25, 4.625, 9.375 ], "texture": "#voxels_atlas" },
+        "west": { "uv": [ 5.3125, 14.0625, 5.875, 14.1875 ], "texture": "#voxels_atlas" },
+        "east": { "uv": [ 5.875, 13.9375, 5.3125, 14.0625 ], "texture": "#voxels_atlas" }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation":  [ -39, -86, -45 ],
+      "translation":  [ 0.7, 11.126, 3.4781 ],
+      "scale":  [ 0.6, 0.8, 0.6 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation":  [ 20, 94, -17 ],
+      "translation":  [ 0, 11.12, 3 ],
+      "scale":  [ 0.6, 0.8, 0.6 ]
+    },
+    "firstperson_righthand": {
+      "rotation":  [ 0, -95, 0 ],
+      "translation":  [ 2.7826, 14.608, 0 ]
+    },
+    "firstperson_lefthand": {
+      "rotation":  [ 0, 95, 0 ],
+      "translation":  [ 2.78, 14.608, 0 ]
+    },
+    "gui": {
+      "rotation":  [ 0, 0, -43 ],
+      "translation":  [ 1.7, 1, 0 ],
+      "scale":  [ 0.65, 0.5, 1 ]
+    },
+    "head": {
+      "rotation":  [ 0, -90, 0 ],
+      "translation":  [ 0.006, 80, 7.6634 ],
+      "scale":  [ 4, 4, 4 ]
+    },
+    "ground": {
+      "rotation":  [ 90, 0, 90 ],
+      "scale":  [ 0.6, 0.8, 0.6 ]
+    },
+    "fixed": {
+      "rotation":  [ 0, 0, 52 ],
+      "translation":  [ -1.391, 1.3913, 0 ],
+      "scale":  [ 0.6, 0.6, 1 ]
+    }
+  }
+}
