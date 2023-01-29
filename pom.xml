@@ -5,10 +5,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <parent>
+    <groupId>com.github.MP-MC</groupId>
     <artifactId>AbstractParent</artifactId>
-    <groupId>ml.empee</groupId>
-    <version>1.0</version>
+    <version>1.0.0</version>
   </parent>
+
+  <repositories>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>modularweapons</artifactId>
@@ -31,32 +38,26 @@
     </dependency>
 
     <dependency>
-      <artifactId>commandsManager</artifactId>
-      <groupId>ml.empee</groupId>
+      <groupId>com.github.Mr-EmPee</groupId>
+      <artifactId>ImperialEdicta</artifactId>
       <version>1.0.0</version>
     </dependency>
 
     <dependency>
-      <groupId>ml.empee</groupId>
-      <artifactId>json-persistence</artifactId>
+      <groupId>com.github.Mr-EmPee</groupId>
+      <artifactId>JsonPersistence</artifactId>
       <version>1.0.0</version>
     </dependency>
 
     <dependency>
-      <artifactId>configsManager</artifactId>
-      <groupId>ml.empee</groupId>
+      <groupId>com.github.Mr-EmPee</groupId>
+      <artifactId>SimpleHeraut</artifactId>
       <version>1.0.0</version>
     </dependency>
 
     <dependency>
-      <artifactId>simpleNotifier</artifactId>
-      <groupId>ml.empee</groupId>
-      <version>1.0.0</version>
-    </dependency>
-
-    <dependency>
-      <artifactId>item-builder</artifactId>
-      <groupId>ml.empee</groupId>
+      <groupId>com.github.Mr-EmPee</groupId>
+      <artifactId>ItemBuilder</artifactId>
       <version>1.0.0</version>
     </dependency>
 
